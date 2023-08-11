@@ -4,8 +4,8 @@
   "description": "Web client for scrcpy and more",
   "scripts": {
     "clean": "npx rimraf dist",
-    "dist:dev": "webpack --config webpack/ws-scrcpy.dev.ts --stats-error-details",
-    "dist:prod": "webpack --config webpack/ws-scrcpy.prod.ts --stats-error-details",
+    "dist:dev": "esbuild --config=esbuild.config.js --minify=false --sourcemap",
+    "dist:prod": "esbuild --config=esbuild.config.js --minify",
     "dist": "npm run dist:prod",
     "start": "npm run dist && cd dist && npm start",
     "script:dist:start": "node ./index.js",
@@ -60,11 +60,11 @@
     "tinyh264": "^0.0.7",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",
+  "devDependencies": {
+    "esbuild": "^0.14.3",
     "typescript": "^4.7.4",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-node-externals": "^2.5.2",
-    "worker-loader": "^3.0.8",
+    "esbuild-plugin-node-externals": "^1.0.0",
+    "esbuild-plugin-worker-loader": "^1.0.0",
     "xterm": "^4.5.0",
     "xterm-addon-attach": "^0.6.0",
     "xterm-addon-fit": "^0.5.0"
