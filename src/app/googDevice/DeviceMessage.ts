@@ -1,3 +1,4 @@
+import { CorrectModule } from '../CorrectModule';
 import Util from '../Util';
 
 export default class DeviceMessage {
