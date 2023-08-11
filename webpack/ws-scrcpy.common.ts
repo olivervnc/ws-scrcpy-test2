@@ -1,7 +1,7 @@
 import nodeExternals from 'webpack-node-externals';
 import fs from 'fs';
 import path from 'path';
-import { Configuration } from 'esbuild';
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import GeneratePackageJsonPlugin from '@dead50f7/generate-package-json-webpack-plugin';
@@ -89,7 +89,7 @@ export const common = () => {
     };
 };
 
-const front: Configuration = {
+const front: webpack.Configuration = {
     entry: path.join(PROJECT_ROOT, './src/app/index.ts'),
     externals: ['fs'],
     plugins: [
@@ -131,7 +131,7 @@ const basePackage = {
 delete packageJson.dependencies;
 delete packageJson.devDependencies;
 
-const back: Configuration = {
+const back: webpack.Configuration = {
     entry: path.join(PROJECT_ROOT, './src/server/index.ts'),
     externals: [nodeExternals()],
     plugins: [new GeneratePackageJsonPlugin(basePackage)],
