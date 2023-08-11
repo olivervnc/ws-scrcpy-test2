@@ -1,5 +1,6 @@
 import { KeyCodeControlMessage } from '../controlMessage/KeyCodeControlMessage';
 import KeyEvent from './android/KeyEvent';
+import { CorrectModule } from './CorrectModule';
 import { KeyToCodeMap } from './KeyToCodeMap';
 
 export interface KeyEventListener {
