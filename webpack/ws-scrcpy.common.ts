@@ -14,8 +14,7 @@ export const common = () => {
     const override = path.join(PROJECT_ROOT, '/build.config.override.json');
     return {
         module: {
-            rules: [
-            ],
+            rules: [],
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
