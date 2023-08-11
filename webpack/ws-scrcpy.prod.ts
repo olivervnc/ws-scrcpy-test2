@@ -1,6 +1,6 @@
 import { backend, frontend } from './ws-scrcpy.common';
 
-const prodOpts: webpack.Configuration = {
+const prodOpts = {
     mode: 'production',
 };
 
