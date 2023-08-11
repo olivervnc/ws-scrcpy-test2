@@ -1,5 +1,4 @@
 import { frontend, backend } from './ws-scrcpy.common';
-import webpack from 'webpack';
 
 const devOpts: webpack.Configuration = {
     devtool: 'inline-source-map',
