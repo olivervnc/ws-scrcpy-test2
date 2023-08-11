@@ -1,16 +1,16 @@
 import { frontend, backend } from './ws-scrcpy.common';
-import webpack from 'webpack';
 
-const devOpts: webpack.Configuration = {
-    devtool: 'inline-source-map',
-    mode: 'development',
+const esbuildConfig = {
+    sourcemap: 'inline',
+    define: {
+        'process.env.NODE_ENV': '"development"',
+    },
 };
 
-const front = () => {
-    return Object.assign({}, frontend(), devOpts);
-};
-const back = () => {
-    return Object.assign({}, backend(), devOpts);
-};
+const front = frontend();
+const back = backend();
 
-module.exports = [front, back];
+export default [front, back].map((config) => ({
+    ...config,
+    ...esbuildConfig,
+}));
