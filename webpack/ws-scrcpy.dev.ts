@@ -1,7 +1,7 @@
 import { frontend, backend } from './ws-scrcpy.common';
-import { Configuration } from 'esbuild';
+import webpack from 'webpack';
 
-const devOpts: Configuration = {
+const devOpts: webpack.Configuration = {
     devtool: 'inline-source-map',
     mode: 'development',
 };
