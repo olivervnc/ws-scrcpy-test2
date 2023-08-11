@@ -18,8 +18,8 @@ function getBuildOptions(env) {
   };
 }
 
-if (process.env.NODE_ENV === 'production') {
-  esbuild.build(getBuildOptions('production')).catch(() => process.exit(1));
+if (['production', 'development'].includes(process.env.NODE_ENV)) {
+  esbuild.build(getBuildOptions(process.env.NODE_ENV)).catch(() => process.exit(1));
 } else {
-  esbuild.build(getBuildOptions('development')).catch(() => process.exit(1));
+  esbuild.build(getBuildOptions('production')).catch(() => process.exit(1));
 }
