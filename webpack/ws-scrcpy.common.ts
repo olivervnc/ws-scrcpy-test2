@@ -1,8 +1,6 @@
 import nodeExternals from 'webpack-node-externals';
 import fs from 'fs';
 import path from 'path';
-import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import GeneratePackageJsonPlugin from '@dead50f7/generate-package-json-webpack-plugin';
 import { mergeWithDefaultConfig } from './build.config.utils';
@@ -17,70 +15,6 @@ export const common = () => {
     return {
         module: {
             rules: [
-                {
-                    test: /\.css$/i,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader'],
-                },
-                {
-                    test: /\.tsx?$/,
-                    use: [
-                        { loader: 'ts-loader' },
-                        {
-                            loader: 'ifdef-loader',
-                            options: mergeWithDefaultConfig(override),
-                        },
-                    ],
-                    exclude: /node_modules/,
-                },
-                {
-                    test: /\.worker\.js$/,
-                    use: { loader: 'worker-loader' },
-                },
-                {
-                    test: /\.svg$/,
-                    loader: 'svg-inline-loader',
-                },
-                {
-                    test: /\.(png|jpe?g|gif)$/i,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                        },
-                    ],
-                },
-                {
-                    test: /\.(asset)$/i,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name]',
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /\.jar$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[path][name].[ext]',
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /LICENSE/i,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[path][name]',
-                            },
-                        },
-                    ],
-                },
             ],
         },
         resolve: {
