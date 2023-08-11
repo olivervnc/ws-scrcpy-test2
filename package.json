@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "npx rimraf dist",
     "dist:dev": "esbuild --config=esbuild.config.js --minify=false --sourcemap",
-    "dist:prod": "esbuild --config=esbuild.config.js --minify",
+    "dist:prod": "esbuild --config=esbuild.config.js --minify --sourcemap",
     "dist": "npm run dist:prod",
     "start": "npm run dist && cd dist && npm start",
     "script:dist:start": "node ./index.js",
