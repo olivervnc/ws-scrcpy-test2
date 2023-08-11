@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import { frontend, backend } from './ws-scrcpy.common';
 
 const esbuildConfig = {
