@@ -1,7 +1,7 @@
 import { backend, frontend } from './ws-scrcpy.common';
-import webpack from 'webpack';
+import { Configuration } from 'esbuild';
 
-const prodOpts: webpack.Configuration = {
+const prodOpts: Configuration = {
     mode: 'production',
 };
 
