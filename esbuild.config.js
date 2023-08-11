@@ -1,3 +1,4 @@
+const esbuild = require('esbuild');
 const path = require('path');
 
 const config = {
@@ -7,10 +8,13 @@ const config = {
   sourcemap: true,
   target: ['es2015'],
   platform: 'browser',
+  fallback: 'node',
   outdir: 'dist',
   loader: {
     '.js': 'jsx',
+    '.jsx': 'jsx',
     '.ts': 'tsx',
+    '.tsx': 'tsx',
   },
 };
 
