@@ -1,16 +1,20 @@
 import { frontend, backend } from './ws-scrcpy.common';
-import webpack from 'webpack';
 
-const devOpts: webpack.Configuration = {
-    devtool: 'inline-source-map',
+const devOpts = {
     mode: 'development',
 };
 
 const front = () => {
-    return Object.assign({}, frontend(), devOpts);
+    return {
+        ...frontend(),
+        ...devOpts,
+    };
 };
 const back = () => {
-    return Object.assign({}, backend(), devOpts);
+    return {
+        ...backend(),
+        ...devOpts,
+    };
 };
 
-module.exports = [front, back];
+export default [front, back];
