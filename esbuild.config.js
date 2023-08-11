@@ -15,9 +15,13 @@ const options = {
     '.wasm': 'file',
   },
   plugins: [
-    // Add plugins to handle web workers
+    require('esbuild-plugin-node-externals')(),
+    require('esbuild-plugin-worker-loader')(),
   ],
 };
 
 // Build the project using esbuild and the defined options
-esbuild.build(options).catch(() => process.exit(1));
+esbuild.build(options).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
