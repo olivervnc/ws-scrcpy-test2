@@ -1,0 +1,18 @@
+src/style/.css:
+
+/* Indent and format the CSS styles for better readability */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
